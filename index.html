@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educator's Digital Resource Platform</title>
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="brand">
+            <i class="fa-solid fa-chalkboard-user"></i> Educator's Toolkit
+        </div>
+        
+        <div class="nav-section">
+            <a href="#home" class="nav-item active" id="nav-home">
+                <i class="fa-solid fa-house"></i> Dashboard
+            </a>
+            <a href="#opensource" class="nav-item" id="nav-os" style="color: var(--opensource);">
+                <i class="fa-brands fa-osi"></i> Open Source Hub
+            </a>
+        </div>
+        
+        <div class="nav-section" id="nav-categories">
+            <div class="nav-title">Resource Type</div>
+            <!-- Dynamically Populated via JS -->
+        </div>
+        
+        <div class="nav-section" id="nav-domains">
+            <div class="nav-title">Academic Departments</div>
+            <!-- Dynamically Populated via JS -->
+        </div>
+
+        <!-- ==========================================
+             HIGHLIGHTED CONTACT SECTION 
+             ========================================== -->
+        <div style="margin: 24px 20px; padding: 24px 20px; background: linear-gradient(145deg, var(--primary-alpha), var(--bg-body)); border: 1px solid var(--border); border-left: 4px solid var(--primary); border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-md);">
+            <i class="fa-solid fa-envelope-open-text" style="font-size: 1.8rem; color: var(--primary); margin-bottom: 12px;"></i>
+            <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 8px; font-weight: 700;">Curated with Care</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5;">
+                Have questions or tool suggestions?
+            </p>
+            <a href="mailto:anmol3077@outlook.com" style="display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 10px; background: var(--primary); color: #ffffff; text-decoration: none; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600; transition: all var(--transition-fast); box-shadow: var(--shadow-sm);"
+               onmouseover="this.style.backgroundColor='var(--primary-hover)'; this.style.transform='translateY(-2px)';"
+               onmouseout="this.style.backgroundColor='var(--primary)'; this.style.transform='translateY(0)';">
+               <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Get in Touch
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+       <header class="header">
+            <div class="header-left">
+                <!-- Hamburger menu (Hidden on Desktop, Visible on Mobile) -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                
+                <!-- The SINGLE Search Bar -->
+                <div class="search-bar">
+                    <i class="fa-solid fa-search" style="color: var(--text-muted)"></i>
+                    <input type="text" id="searchInput" placeholder="Search for tools, subjects, or use cases...">
+                </div>
+            </div>
+            
+            <!-- Dark Mode Toggle -->
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </header>
+
+        <!-- Mobile Background Blur Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
+        <!-- App View Container (Where dynamic pages render) -->
+        <div class="app-view" id="app"></div>
+    </main>
+
+    <!-- Load the Database first, then the Application Logic -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
